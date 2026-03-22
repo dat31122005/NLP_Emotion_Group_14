@@ -27,10 +27,7 @@ __all__ = ["BCELoss", "FocalBCELoss", "AsymmetricLoss", "TieredPerClassASL", "ge
 
 _EPS = 1e-8
 
-
-# =============================================================================
 #  1. BCE
-# =============================================================================
 
 class BCELoss(nn.Module):
     def __init__(self, pos_weight: Optional[torch.Tensor] = None, reduction: str = "mean"):
@@ -45,9 +42,7 @@ class BCELoss(nn.Module):
         return self.loss_fn(logits, targets)
 
 
-# =============================================================================
 #  2. Focal BCE
-# =============================================================================
 
 class FocalBCELoss(nn.Module):
     def __init__(
@@ -76,9 +71,7 @@ class FocalBCELoss(nn.Module):
                loss.sum()  if self.reduction == "sum"  else loss
 
 
-# =============================================================================
 #  3. Standard ASL
-# =============================================================================
 
 class AsymmetricLoss(nn.Module):
     """Asymmetric Loss — same gamma/clip for all classes."""
@@ -116,9 +109,7 @@ class AsymmetricLoss(nn.Module):
                loss.sum()  if self.reduction == "sum"  else loss
 
 
-# =============================================================================
 #  4. Three-Tier Per-Class ASL  (Stage 2 default)
-# =============================================================================
 
 class TieredPerClassASL(nn.Module):
     """
@@ -213,9 +204,7 @@ class TieredPerClassASL(nn.Module):
                loss.sum()  if self.reduction == "sum"  else loss
 
 
-# =============================================================================
 #  5. Factory
-# =============================================================================
 
 def get_loss_fn(
     cfg:          dict,
