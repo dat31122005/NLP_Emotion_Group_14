@@ -38,7 +38,7 @@ data:
   seed:        42
   num_workers: 2     # số worker cho DataLoader — Colab: 2, local GPU mạnh: 4, debug: 0
 
-#------------------------------------------------------------------------------
+
 #  Stage 1 — Binary: Neutral vs Has-Emotion
 #
 #  Imbalance: has_emotion 35,751 vs neutral 14,497  (ratio ≈ 2.5:1, mild)
